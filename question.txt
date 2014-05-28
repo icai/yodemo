@@ -1,0 +1,5 @@
+1. route model promise
+2. set view style
+3. ember auth
+4. controller view valuebinding 
+5. route model return app.xxx.find()?
