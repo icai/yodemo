@@ -1,0 +1,1 @@
+Yodemo.ApplicationAdapter = DS.FixtureAdapter;
