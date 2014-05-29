@@ -1,8 +1,7 @@
 Yodemo.IndexRoute = Ember.Route.extend({
-  model: function(params) {
-  	return Yodemo.Index;
-  	//console.info(params);
-  }
+  // model: function(params) {
+  // 	//return new Yodemo.Index();
+  // }
 });
 
 

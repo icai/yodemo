@@ -8,8 +8,6 @@ Yodemo.Router.map(function () {
 
   this.route('index', { path: '/'});
 
-
-
   this.resource('users', function(){
     this.resource('user', { path: '/:user_id' }, function(){
       this.route('edit');

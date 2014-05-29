@@ -3,6 +3,10 @@ Yodemo.RESTAdapter = DS.RESTAdapter.extend({
 	host: 'https://c.com/'
 });
 
+Ember.$.ajaxPrefilter(function(e, t, r) {
+		return Yodemo.CSRF_TOKEN ? r.setRequestHeader("X-CSRF-Token", Yodemo.CSRF_TOKEN) : void 0
+})
+
 
 
 
