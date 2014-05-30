@@ -1,9 +1,13 @@
-Yodemo.IndexLoginController = Ember.Controller.extend({
+Yodemo.IndexLoginController = Ember.ObjectController.extend({
+    init: function(){
+        this._super();
+        this.reset();
+    },
     reset: function() {
         this.setProperties({
             username: "",
             password: "",
-            remember: "",
+            remember: false,
             errorMessage: ""
         });
     },
@@ -16,15 +20,10 @@ Yodemo.IndexLoginController = Ember.Controller.extend({
         login: function() {
 
             var self = this;
-            //var   data = this.getProperties('username', 'password');
-            // Clear out any error messages.
             this.set('errorMessage', null);
-            var data = {
-                username: this.get('username'),
-                password: this.get('password'),
-                remember: this.get('remember')
-            };
+            // Clear out any error messages.
 
+            var   data = this.getProperties('username', 'password','remember');
             Ember.$.ajax({
                 type: "POST",
                 url: Yodemo.API_HOST + this.url + '?v=' + (new Date()).getTime(),
@@ -38,29 +37,18 @@ Yodemo.IndexLoginController = Ember.Controller.extend({
                     req.setRequestHeader('remember', data.remember);
                 },
                 success: function(json) {
-                    if (json.result) {} else {};
+                    if (json.result) {
+                        self.set('token', json.data.token);
+                    } else {
+                        self.set('errorMessage',json.errors.join(',<br/>'))
+                    }
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
                     console.info(textStatus);
 
                 }
             });
-            // $.post('/auth.json', data).then(function(response) {
-            //     self.set('errorMessage', response.message);
-            //     if (response.success) {
-            //         alert('Login succeeded!');
-            //         self.set('token', response.token);
 
-            //         var attemptedTransition = self.get('attemptedTransition');
-            //         if (attemptedTransition) {
-            //             attemptedTransition.retry();
-            //             self.set('attemptedTransition', null);
-            //         } else {
-            //             // Redirect to 'articles' by default.
-            //             self.transitionToRoute('articles');
-            //         }
-            //     }
-            // });
         }
 
     }

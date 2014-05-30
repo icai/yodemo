@@ -1,0 +1,1 @@
+Yodemo.SignupController = Ember.ObjectController.extend();

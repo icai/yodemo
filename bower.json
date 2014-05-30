@@ -4,7 +4,7 @@
   "dependencies": {
     "ember": "1.5.1",
     "handlebars": "1.3.0",
-    "ember-data": "1.0.0-beta.7",
+    "ember-data": "1.0.0-beta.5",
     "bootstrap-sass": "~3.0.0",
     "ember-form-components": "~0.2.0",
     "underscore": "~1.6.0"
