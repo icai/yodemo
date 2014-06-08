@@ -1,1 +1,0 @@
-Yodemo.LoginController = Ember.ObjectController.extend();

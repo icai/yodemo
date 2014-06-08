@@ -1,49 +1,40 @@
-Yodemo.IndexRoute = Ember.Route.extend({
-	renderTemplate: function(){
-		 this._super(this, arguments);
-		 this.renderSubTemplate();
 
-	},
-	renderSubTemplate: function(){
-		 this.render('IndexLogin',{
-		 	into:'index',
-		 	outlet:'form',
-		 	controller:'indexLogin'
-		 })
-	}
+
+
+
+
+
+Yodemo.IndexRoute = Ember.Route.extend({
+   beforeModel: function(transition) {
+     this.transitionTo('index.index');
+   }
+
 });
 
 
-Yodemo.IndexLoginRoute =  Ember.Route.extend({
-	renderTemplate: function(){
-		 this._super(this, arguments);
 
-		 //this.renderSubTemplate();
-	},
-	renderSubTemplate: function(){
 
-		 this.render('IndexLogin',{
-		 	into:'index',
-		 	outlet:'form',
-		 	controller:'indexLogin'
-		 })
-	}
+
+
+
+Yodemo.IndexIndexRoute = Ember.Route.extend({
+   beforeModel: function(transition) {
+     this.transitionTo('index.login');
+   }
+
+  // renderTemplate: function() {
+  //   this.render('index/login');
+  // }
+
+});
+
+
+Yodemo.IndexLoginRoute = Ember.Route.extend({
 
 });
 
 
 Yodemo.IndexSignupRoute = Ember.Route.extend({
-	renderTemplate: function(){
-		this._super(this, arguments);
-		//this.renderSubTemplate();
-	},
-	renderSubTemplate: function(){
-		 this.render('IndexSignup',{
-		 	into:'signup',
-		 	outlet:'formx',
-		 	controller:'indexSignup'
-		 })
-	}
 
 });
 
