@@ -22,7 +22,6 @@ Yodemo.IndexLoginController = Ember.ObjectController.extend({
             var self = this;
             this.set('errorMessage', null);
             // Clear out any error messages.
-
             var   data = this.getProperties('username', 'password','remember');
             Ember.$.ajax({
                 type: "POST",
